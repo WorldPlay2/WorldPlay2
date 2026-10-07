@@ -10,10 +10,10 @@
 </div>
 
 
-## 📰 News
+## 🔥 News
 
-- **[2026.10.7]** WorldPlay2 is now on Reactor! [Play in your browser](https://reactor.inc/worldplay2), or [deploy it locally](reactor/README.md) with the Reactor integration and demo frontend in this repository. Thanks to [Rising0321](https://github.com/Rising0321), [Orion-Zheng](https://github.com/Orion-Zheng), and [notrealzapa](https://github.com/notrealzapa) for porting WorldPlay2 to Reactor and optimizing the inference infrastructure.
-- **[2026.10.6]** We have released the WorldPlay2 model weights and inference code!
+- **[2026.10.7]** 🚀 WorldPlay2 is now on Reactor! [Play in your browser](https://reactor.inc/worldplay2), or [deploy it locally](reactor/README.md) with the Reactor integration and demo frontend in this repository. Thanks to [Rising0321](https://github.com/Rising0321), [Orion-Zheng](https://github.com/Orion-Zheng), and [notrealzapa](https://github.com/notrealzapa) for porting WorldPlay2 to Reactor and optimizing the inference infrastructure.
+- **[2026.10.6]** 🤗 We have released the WorldPlay2 model weights and inference code!
 
 ## 🎥 Video
 
