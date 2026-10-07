@@ -1,0 +1,18 @@
+# Model weights and local environments are never part of the integration.
+.idea/
+__pycache__/
+*.pyc
+.ruff_cache/
+.venv/
+.env
+.env.*
+!.env.example
+checkpoints/
+/weights/
+outputs/
+recordings/
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.log

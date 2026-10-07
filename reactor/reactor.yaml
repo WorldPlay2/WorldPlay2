@@ -1,0 +1,49 @@
+$schema: reactor/v2
+
+model:
+  name: worldplay2
+  version: 0.1.0
+  public: false
+  description: Steer an uploaded scene with native WorldPlay2 action-conditioned chunks.
+  resources:
+    gpu:
+      type: NVIDIA_B200
+      count: 4
+    cpu:
+      request: "8"
+      limit: "16"
+    memory:
+      request: 64Gi
+      limit: 256Gi
+
+runtime:
+  import: reactor.worldplay2_app:WorldPlay2
+  config: worldplay2.yaml
+  weights_path: ./weights
+
+build:
+  runtime_version: "3.6.1"
+  python_requirements: requirements.txt
+  # Keep non-Torch packages on PyPI; the CUDA index can lag NumPy releases.
+  python_indexes:
+    - https://pypi.org/simple
+  cuda_version: "12.8.1"
+  python_version: "3.12"
+  system_packages:
+    - build-essential
+    - git
+    - ffmpeg
+  run:
+    - pip install --no-cache-dir --no-build-isolation flash-attn==2.8.3
+    # FlashAttention 4 after FlashAttention 2: both wheels ship flash_attn/cute, and FA4's must win.
+    - pip install --no-cache-dir flash-attn-4==4.0.0b33
+    # Pin the shared upstream modules so reactor/ is a self-contained build context.
+    - >-
+      git init /opt/worldplay2
+      && git -C /opt/worldplay2 fetch --depth 1 https://github.com/WorldPlay2/WorldPlay2.git 6c7dd87c09b99b9c9086d6265b50db34f997502a
+      && git -C /opt/worldplay2 checkout --detach FETCH_HEAD
+      && ln -s /app /opt/worldplay2/reactor
+  runtime_env:
+    PYTHONPATH: /opt/worldplay2
+    TOKENIZERS_PARALLELISM: "false"
+    OMP_NUM_THREADS: "8"

@@ -1,0 +1,10 @@
+{
+  "endpoints": [
+    {
+      "id": "local",
+      "label": "Local",
+      "url": "http://localhost:8080",
+      "kind": "local"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+.ruff_cache/
+.venv/
+venv/
+.git/
+.gitignore
+.idea/
+.vscode/
+.env
+.env.*
+weights/
+checkpoints/
+outputs/
+recordings/
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.log
+# Not part of the served model
+demo/
+assets/

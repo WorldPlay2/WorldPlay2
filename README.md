@@ -6,8 +6,14 @@
   <a href=https://worldplay2.github.io/ target="_blank"><img src=https://img.shields.io/badge/Project%20Page-333399.svg?logo=homepage height=22px></a>
   <a href=https://arxiv.org/abs/2609.35560 target="_blank"><img src=https://img.shields.io/badge/arXiv-b5212f.svg?logo=arxiv height=22px></a>
   <a href=https://www.youtube.com/watch?v=_pFzHHslhgc target="_blank"><img src=https://img.shields.io/badge/YouTube%20Video-FF0000.svg?logo=youtube height=22px></a>
+  <a href="https://reactor.inc/worldplay2" target="_blank"><img src="reactor/assets/try-on-reactor.svg" alt="Try it on Reactor" width="128" height="22"></a>
 </div>
 
+
+## 📰 News
+
+- **[2026.10.7]** WorldPlay2 is now on Reactor! [Play in your browser](https://reactor.inc/worldplay2), or [deploy it locally](reactor/README.md) with the Reactor integration and demo frontend in this repository. Thanks to [Rising0321](https://github.com/Rising0321), [Orion-Zheng](https://github.com/Orion-Zheng), and [notrealzapa](https://github.com/notrealzapa) for porting WorldPlay2 to Reactor and optimizing the inference infrastructure.
+- **[2026.10.6]** We have released the WorldPlay2 model weights and inference code!
 
 ## 🎥 Video
 
@@ -118,6 +124,28 @@ set `NPROC_PER_NODE` to match your GPU count. For one GPU, also set
 
 All input items are processed, and videos are saved as `<output_name>.mp4` in
 `OUTPUT_PATH`.
+
+## ⚡ Quick Start with Reactor Runtime
+
+The [`reactor/`](reactor/README.md) integration serves WorldPlay2 as an interactive model with a browser frontend. The default configuration uses 4 NVIDIA B200 GPUs, Docker and the NVIDIA Container Toolkit. Follow the [Reactor setup guide](reactor/README.md#1-install-the-reactor-cli) to install the CLI and prepare the weights under `reactor/weights/base` and `reactor/weights/fast`.
+
+From the repository root, enter `reactor/`, then build and start the model on four available GPUs:
+
+```bash
+cd reactor
+reactor build
+reactor run --gpus '"device=0,1,2,3"' --port 8080
+```
+
+Once `http://localhost:8080/health` reports `"state":"available"`, open another terminal at the repository root and start the frontend (Node.js 20+ and pnpm required):
+
+```bash
+cd reactor/demo
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000), select the **Local** endpoint (`http://localhost:8080`), and click **Connect**. Choose an example or add your own image and prompt to start playing, then use **WASD** to move and the **arrow keys** to look around. Release the keys or on-screen buttons to stop the corresponding action. For a remote GPU machine, see the [connection instructions](reactor/README.md#4-open-the-client), including WebRTC requirements for SSH access.
 
 ## 📖 Input Format
 

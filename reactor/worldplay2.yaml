@@ -1,0 +1,9 @@
+height: 448
+width: 832
+seed: 42
+world_size: 4
+# Bound on each generate, prepare or reset call across the GPUs, in seconds.
+call_timeout_seconds: 240.0
+# Playback rate (frames per second) every chunk plays out at. Keep it at or below the slowest
+# chunk's rate: about 18 on 4x B200 for a full 256-chunk world.
+target_fps: 17.0

@@ -1,0 +1,9 @@
+WorldPlay2 on the Reactor runtime.
+
+Adapted from https://github.com/reactor-team/reactor-worldplay2, which distributes
+its integration under Apache-2.0 (see LICENSE).
+
+The upstream WorldPlay2 release (https://github.com/WorldPlay2/WorldPlay2) declares
+CC-BY-NC-4.0 in ../LICENSE.txt. Reused upstream code retains its licence.
+Files derived from Wan2.2 (https://github.com/Wan-Video/Wan2.2) retain the Alibaba
+Wan Team copyright notices. Modified files are identified in their headers.

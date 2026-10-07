@@ -1,0 +1,21 @@
+# Model dependencies resolved with Reactor Runtime during `reactor build`.
+# `build.runtime_version` in reactor.yaml selects the Runtime release.
+numpy==2.5.3
+PyYAML>=6.0
+torch==2.8.0
+torchvision==0.23.0
+diffusers==0.37.0
+transformers==4.51.3
+accelerate>=1.1.1
+safetensors
+einops
+tqdm
+imageio[ffmpeg]
+ftfy
+regex
+Pillow
+sentencepiece
+# FlashAttention 2 build dependencies used by reactor.yaml's build.run.
+ninja
+packaging
+wheel

@@ -1,0 +1,181 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@reactor-team/ui/styles.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--reactor-font-sans);
+  --font-mono: var(--reactor-font-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+:root {
+  /* Reactor UI Colors */
+  --background: var(--reactor-color-light);
+  --foreground: var(--reactor-color-interstellar);
+  --card: var(--reactor-color-light);
+  --card-foreground: var(--reactor-color-interstellar);
+  --popover: var(--reactor-color-light);
+  --popover-foreground: var(--reactor-color-interstellar);
+  --primary: var(--reactor-color-light-gold);
+  --primary-foreground: var(--reactor-color-interstellar);
+  --secondary: #f5f5f5;
+  --secondary-foreground: var(--reactor-color-interstellar);
+  --muted: #f5f5f5;
+  --muted-foreground: #666666;
+  --accent: var(--reactor-color-light-gold);
+  --accent-foreground: var(--reactor-color-interstellar);
+  --destructive: #ef4444;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: var(--reactor-color-interstellar);
+  --chart-1: var(--reactor-color-light-gold);
+  --chart-2: #e8dfa0;
+  --chart-3: #d4c97a;
+  --chart-4: #c0b354;
+  --chart-5: #ac9d2e;
+  --radius: 4px;
+  --sidebar: #fafafa;
+  --sidebar-foreground: var(--reactor-color-interstellar);
+  --sidebar-primary: var(--reactor-color-light-gold);
+  --sidebar-primary-foreground: var(--reactor-color-interstellar);
+  --sidebar-accent: var(--reactor-color-light-gold);
+  --sidebar-accent-foreground: var(--reactor-color-interstellar);
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: var(--reactor-color-interstellar);
+}
+
+.dark {
+  /* Reactor UI Colors - Dark Mode */
+  --background: var(--reactor-color-interstellar);
+  --foreground: var(--reactor-color-light);
+  --card: #1a1a1a;
+  --card-foreground: var(--reactor-color-light);
+  --popover: #1a1a1a;
+  --popover-foreground: var(--reactor-color-light);
+  --primary: var(--reactor-color-light-gold);
+  --primary-foreground: var(--reactor-color-interstellar);
+  --secondary: #2a2a2a;
+  --secondary-foreground: var(--reactor-color-light);
+  --muted: #2a2a2a;
+  --muted-foreground: #999999;
+  --accent: var(--reactor-color-light-gold);
+  --accent-foreground: var(--reactor-color-interstellar);
+  --destructive: #ef4444;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: var(--reactor-color-light-gold);
+  --chart-1: var(--reactor-color-light-gold);
+  --chart-2: #e8dfa0;
+  --chart-3: #d4c97a;
+  --chart-4: #c0b354;
+  --chart-5: #ac9d2e;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: var(--reactor-color-light);
+  --sidebar-primary: var(--reactor-color-light-gold);
+  --sidebar-primary-foreground: var(--reactor-color-interstellar);
+  --sidebar-accent: var(--reactor-color-light-gold);
+  --sidebar-accent-foreground: var(--reactor-color-interstellar);
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: var(--reactor-color-light-gold);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Subtle scrollbars that match the dark UI (the default white bar clashes
+   against the dark panels). Firefox + WebKit/Chromium. */
+.dark {
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+  scrollbar-width: thin;
+}
+.dark *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.dark *::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dark *::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.dark *::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.dark *::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Dark nav override for demos landing */
+.demos-nav .reactor-nav__inner {
+  background-color: #1a1a1a;
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 16px;
+  border-radius: 12px;
+}
+
+.demos-nav .reactor-nav__link {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.demos-nav .reactor-nav__link:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Action-callout keycap press (fancy mode) — replays on each remount */
+@keyframes keycap-press {
+  0% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(3px) scale(0.93); filter: brightness(1.4); }
+  65% { transform: translateY(-1px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); filter: brightness(1); }
+}
